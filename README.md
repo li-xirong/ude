@@ -4,7 +4,7 @@
 ## Introduction
 
 It has been recognized early that visual classifiers trained on a specific domain do not necessarily perform well on a distinct domain. Expanding visual categorization into a novel domain without the need of extra annotation has been a long-term interest for multimedia intelligence. Previously, this challenge has been approached by unsupervised domain adaptation (UDA). While UDA focuses on the target domain, we argue that the performance on both source and target domains matters, as in practice which domain a test example comes from is unknown. Moreover, how domain-adapted models perform in the original
-source domain is mostly unreported. The absence of performance evaluation on the source domain rises two important questions: 
+source domain is mostly unreported. The absence of performance evaluation on the source domain raises two important questions: 
 + Is a domain-adapted model indeed domain-invariant? 
 + Is the performance gain for the target domain obtained at the cost of significant performance loss in the source domain? 
 
@@ -65,7 +65,7 @@ python eval_all_tasks.py --test_collection domainnet_test
 
 
 
-## Publications
+## Publications on UDE
 
 
 Citation of the UDE data is the following:
