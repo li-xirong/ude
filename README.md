@@ -13,7 +13,7 @@ We introduce a new task called *Unsupervised Domain Expansion* (UDE), aiming to 
 
 ## Data for UDE
 
-+ [tomm2012ude-data](tomm2021ude-data.zip). We re-purpose two public datasets, [Office-Home](https://www.hemanthdv.org/officeHomeDataset.html) and [DomainNet](http://ai.bu.edu/M3SDA/), originally developed for domain adaptation. Different from the setting of domain adapation which uses all examples in the source domain for training, we have divided the source-domain examples into two disjoint parts, *training* and *test*, so the performance of domain-adapted or domain-expanded models on the original source domain can be evaluated.
++ **tomm2021ude-data** ([google drive](https://drive.google.com/file/d/1dOHy5aoSl7oUd04EAuHm0uLb-xvnneNT/view?usp=sharing)). We built this dataset for UDE by re-purposing two public datasets, [Office-Home](https://www.hemanthdv.org/officeHomeDataset.html) and [DomainNet](http://ai.bu.edu/M3SDA/), originally developed for domain adaptation. Different from the setting of domain adapation which uses all examples in the source domain for training, we have divided the source-domain examples into two disjoint parts, *training* and *test*, so the performance of domain-adapted or domain-expanded models on the original source domain can be evaluated.
 
 | Dataset          | Classes | Images  | Domains (images)                                                     |
 |------------------|---------:|---------:|----------------------------------------------------------------------|
