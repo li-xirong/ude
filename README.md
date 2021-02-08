@@ -13,7 +13,7 @@ We introduce a new task called *Unsupervised Domain Expansion* (UDE), aiming to 
 
 ## Data for UDE
 
-+ **tomm2021ude-data** ([google drive](https://drive.google.com/file/d/1dOHy5aoSl7oUd04EAuHm0uLb-xvnneNT/view?usp=sharing)). We built this dataset for UDE by re-purposing two public datasets, [Office-Home](https://www.hemanthdv.org/officeHomeDataset.html) and [DomainNet](http://ai.bu.edu/M3SDA/), originally developed for domain adaptation. Different from the setting of domain adapation which uses all examples in the source domain for training, we have divided the source-domain examples into two disjoint parts, *training* and *test*, so the performance of domain-adapted or domain-expanded models on the original source domain can be evaluated.
++ **tomm2021ude-data** ([google drive (34M)](https://drive.google.com/file/d/1dOHy5aoSl7oUd04EAuHm0uLb-xvnneNT/view?usp=sharing)). We built this dataset for UDE by re-purposing two public datasets, [Office-Home](https://www.hemanthdv.org/officeHomeDataset.html) and [DomainNet](http://ai.bu.edu/M3SDA/), originally developed for domain adaptation. Different from the setting of domain adapation which uses all examples in the source domain for training, we have divided the source-domain examples into two disjoint parts, *training* and *test*, so the performance of domain-adapted or domain-expanded models on the original source domain can be evaluated.
 
 | Dataset          | Classes | Images  | Domains (images)                                                     |
 |------------------|---------:|---------:|----------------------------------------------------------------------|
@@ -22,15 +22,18 @@ We introduce a new task called *Unsupervised Domain Expansion* (UDE), aiming to 
 | domainnet_train  |     345 | 253,059 | clipart (33,525), painting (50,416), real (120,906), sketch (48,212) |
 | domainnet_test   |     345 | 109,411 | clipart (14,604), painting (21,850), real (52,041), sketch (20,916)  |
 
+We suggest readers to use this data split so the models reported below can be directly and fairly compared.
 
 ## Performance
+
+
 
 ### Models
 
 + ResNet50: Trained exclusively on the source domain. 
 + DDC: A classical deep domain adaptation model that minimizes domain discrepancy measured in light of first-order statistics of the deep features (Tzeng *et al*., Deep Domain Confusion: Maximizing for Domain Invariance, ArXiv 2014)
 * CDAN: Domain adaptation by adversarial learning, using multilinear conditioning of deep features and classification results as the input of its discriminator (Long *et al*., Conditional Adversarial Domain Adaptation, NeurIPS 2018)
-+ KDDE: Our proposed method (Wang *et al*., Unsupervised Domain Expansion for Visual Categorization, TOMM 2021).
++ KDDE: Our proposed method (Wang *et al*., Unsupervised Domain Expansion for Visual Categorization, TOMM 2021)
 
 ### Office-Home
 
@@ -63,12 +66,25 @@ python eval_all_tasks.py --test_collection domainnet_test
 | KDDE(CDAN) |         72.98 |         47.65 |           60.32 |
 
 
+Evaluation regarding a specific UDE task is also provided, 
+```bash
+python eval_per_task.py --test_collection domainnet_test --source_domain real --target_domain clipart
+
+#Performance of the real->clipart UDE task on domainnet_test
+#model source-domain target-domain expanded-domain
+ResNet50_real 82.96 49.60 66.28
+DDC_ResNet50_real_clipart 81.16 50.08 65.62
+CDAN_ResNet50_real_clipart 79.10 50.99 65.05
+KDDE_DDC_ResNet50_real_clipart 82.19 52.68 67.44
+KDDE_CDAN_ResNet50_real_clipart 81.37 53.56 67.47
+```
+
 
 
 ## Publications on UDE
 
 
-Citation of the UDE data is the following:
+Citation of the UDE task and data is the following:
 
 >@article{tomm-ude,      
 >title={Unsupervised Domain Expansion for Visual Categorization},    
