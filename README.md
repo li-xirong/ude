@@ -86,7 +86,7 @@ KDDE_CDAN_ResNet50_real_clipart 81.37 53.56 67.47
 
 Citation of the UDE task and data is the following:
 
-'''
+```
 @article{tomm-ude,      
 title={Unsupervised Domain Expansion for Visual Categorization},    
 author={Jie Wang and Kaibin Tian and Dayong Ding and Gang Yang and Xirong Li},     
@@ -94,5 +94,5 @@ journal = {ACM Transactions on Multimedia Computing Communications and Applicati
 year={2021},  
 note={in press},  
 }
-'''
+```
 
